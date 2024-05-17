@@ -1,6 +1,6 @@
-# YamBlog - A Blog Application with YAML to HTML Conversion
+# goBlog - A Blog Application with YAML to HTML Conversion
 
-YamBlog is a simple blog application written in Go that allows you to create and serve HTML pages from markdown contained in YAML files. HTML pages are stored in the `/pages` dir by default. Each YAML element is then converted into HTML. 
+goBlog is a simple blog application that allows you to create and serve HTML pages from markdown contained in YAML files. HTML pages are stored in the `/content` dir by default. Each YAML element is then converted into HTML. 
 
 This README will guide you through setting up and using the application.
 
@@ -17,35 +17,17 @@ This README will guide you through setting up and using the application.
 
 - Install the project and dependencies:
 ```Bash
-git clone https://github.com/John-Holden/YamlBlog.
-cd YamlBlog
+git clone https://github.com/John-Holden/goBlog.
+cd goBlog
 go mod tidy
 ```
 - Run the webserver using the default config:
 ```
 go run main.go
 ```
-- List all HTML pages: `http://localhost:8080/`
+- List all HTML pages: `http://localhost:8000/`
 - Navigate to a page, e.g.: `http://localhost:8080/pages/basic`
 - Update `/pages` with new HTML pages according to the schema
-- The default paths can be updated by calling the `WebServer.SetBlogConf` method in main.go:
-
-```GO
-func main() {
-	content_dir := "posts"
-	static_dir := "files"
-	css_dir := "css"
-	port := 80
-	WebServer.Start(
-		WebServer.SetBlogConf(
-			content_dir,
-			static_dir,
-			port,
-			css_dir,
-		),
-	)
-}
-```
 
 ## YAML Content Format
 Each YAML file in the pages directory represents a blog page and should adhere to the following schema:
